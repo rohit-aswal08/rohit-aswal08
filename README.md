@@ -56,10 +56,10 @@ H U N T I N G  —  D E T E C T I N G  —  R E S P O N D I N G
 │  DNS · HTTP · TLS    │  Disk Forensics      │  Prioritisation                   │
 │                      │                      │  Framework                        │
 │  BOTS v1 Attack      │  Raccoon Stealer     │                                   │
-│  Investigation       │  Network Forensics   │  100% Real-World Acc.             │
+│  Investigation       │  Network Forensics   │  ~100% Real-World Acc.            │
 │                      │                      │  31.3% Workload ↓                 │
-│  Windows EventLog    │  Malicious PDF       │  175,341 Records Tested           │
-│  Threat Hunting      │  Memory Forensics    │                                   │
+│  Windows EventLog    │  Malicious PDF       │  175,341 Records · 4 Models       │
+│  Threat Hunting      │  Memory Forensics    │  Benchmarked                      │
 └──────────────────────┴──────────────────────┴───────────────────────────────────┘
 ```
 
@@ -111,17 +111,24 @@ A 3-part investigation reconstructing a complete malware attack chain from a rea
 
 ---
 
-## 🤖 Project 2 — AI-Driven SOC Alert Prioritisation Framework
+## 🤖 Project 2 — AI-Driven SOC Detection & Alert Prioritisation Framework
 
-> **[AI-SOC-Alert-Framework](https://github.com/rohit-aswal08/AI-SOC-Alert-Framework)** · Python · scikit-learn · Independent ML Project · Real-World Validated
+> **[AI-SOC-Alert-Framework](https://github.com/rohit-aswal08/AI-SOC-Alert-Framework)** · Python · scikit-learn · XGBoost · Independent ML Project · Real-World Validated
 
 ![Python](https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![ML](https://img.shields.io/badge/Model-Random%20Forest-green?style=for-the-badge)
-![Accuracy](https://img.shields.io/badge/Real--World%20Accuracy-100%25-brightgreen?style=for-the-badge)
+![Accuracy](https://img.shields.io/badge/Real--World%20Accuracy-%7E100%25-brightgreen?style=for-the-badge)
 ![Validated](https://img.shields.io/badge/Validated-UNSW--NB15-purple?style=for-the-badge)
+![Models](https://img.shields.io/badge/Models%20Benchmarked-4-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
 
-An independently built ML pipeline to automatically classify and prioritise SOC alerts — directly addressing alert fatigue in enterprise SOC environments. Validated against 175,341 real-world network records from the UNSW-NB15 benchmark dataset.
+An independently built ML pipeline combining three engineering components: SOC alert classification and prioritisation, four-model benchmark comparison for evidence-based model selection, and measurable analyst workload reduction. Validated against 175,341 real-world network records from the UNSW-NB15 benchmark dataset.
+
+| Component | Description |
+|-----------|-------------|
+| 🔍 **Detection Engineering** | SOC alert classification and severity prioritisation |
+| 🧪 **ML Model Benchmarking** | 4 algorithms evaluated — Random Forest selected on evidence |
+| ⚡ **SOC Operations Optimisation** | Quantified reduction in analyst workload |
 
 ```
           ┌──────────────────────────┐
@@ -137,7 +144,8 @@ An independently built ML pipeline to automatically classify and prioritise SOC 
                        ▼
           ┌──────────────────────────┐
           │ Random Forest Classifier │
-          │   (100% Real-World Acc.) │
+          │ Selected after 4-model   │
+          │   benchmark comparison   │
           └────────────┬─────────────┘
                        │
         ┌──────────────┼──────────────┬──────────────┐
@@ -157,26 +165,27 @@ An independently built ML pipeline to automatically classify and prioritise SOC 
 
 | Metric | Synthetic Data | Real Data (UNSW-NB15) |
 |--------|---------------|----------------------|
-| 🎯 Model Accuracy | 97.5% | **100.0%** |
+| 🎯 Model Accuracy | 97.5% | **~100%** |
 | 📥 Total Alerts | 1,000 | **175,341** |
 | 🤖 Auto-Handled | 425 | **54,843** |
 | 👨‍💻 Needs Analyst | 575 | **120,498** |
 | ⚡ Workload Reduction | 42.5% | **31.3%** |
 
-> The lower workload reduction on real data (31.3% vs 42.5%) reflects that real-world traffic contains a higher proportion of serious threats requiring human review — the correct and expected behaviour for a production SOC triage system.
+> The lower workload reduction on real data (31.3% vs 42.5%) reflects that real-world traffic contains a higher proportion of serious threats requiring human review — the correct and expected behaviour for a production SOC triage system. Special attention was given to minimising false negatives on Critical alerts, as missed high-severity threats represent the highest operational risk in SOC environments. Reducing low-value alert volume while preserving Critical and High detections directly improves Mean Time to Respond (MTTR) — one of the most important KPIs in enterprise SOC operations.
 
-### 🧠 Features Engineered from SOC Triage Logic
+### 🧪 Model Benchmark Summary
 
-| Feature | Description |
-|---------|-------------|
-| `failed_logins` | Number of failed login attempts |
-| `external_ip` | Traffic from external IP (binary) |
-| `data_transfer_mb` | Volume of data transferred |
-| `malware_flag` | Malware signature detected (binary) |
-| `dns_beaconing` | DNS beaconing activity detected (binary) |
+| Model | Synthetic Acc (%) | Real Acc (%) | Real Time (s) |
+|-------|------------------|--------------|---------------|
+| 🥇 Random Forest | 98.0% | **~100%** | 1.78s |
+| Decision Tree | 98.0% | ~100% | 0.07s |
+| XGBoost | 98.0% | 99.99% | 1.59s |
+| Logistic Regression | 94.0% | 99.88% | 41.02s |
+
+> Random Forest selected over Decision Tree due to overfitting resistance, feature importance interpretability, and industry-standard deployment across SIEM/SOAR environments. Logistic Regression eliminated due to lowest accuracy and 41-second training time at scale.
 
 ### 🛠️ Skills Demonstrated
-`Machine Learning Classification` · `Real-World Dataset Validation` · `Feature Engineering & Cross-Dataset Mapping` · `SOC Alert Triage Logic` · `Automated Incident Response Design` · `Python Development` · `Security Data Analysis` · `Performance Evaluation`
+`Machine Learning Classification` · `Evidence-Based Model Selection` · `Real-World Dataset Validation` · `Feature Engineering & Cross-Dataset Mapping` · `SOC Alert Triage Logic` · `Automated Incident Response Design` · `SIEM Integration Conceptual Design` · `Python Development` · `Security Data Analysis` · `Critical Limitation Analysis`
 
 ---
 
@@ -305,10 +314,11 @@ EXFILTRATION        →   ~19.8MB data transferred to attacker IP 40.80.148.42
 │   ML & PYTHON    │   OFFENSIVE      │   FRAMEWORKS                  │
 │                  │                  │                               │
 │  • scikit-learn  │  • Nmap          │  • MITRE ATT&CK               │
-│  • pandas        │  • Metasploit    │  • NIST CSF                   │
-│  • Random Forest │  • Kali Linux    │  • ISO/IEC 27001              │
-│  • Jupyter       │  • Privilege     │                               │
-│  • UNSW-NB15     │    Escalation    │                               │
+│  • XGBoost       │  • Metasploit    │  • NIST CSF                   │
+│  • pandas        │  • Kali Linux    │  • ISO/IEC 27001              │
+│  • Random Forest │  • Privilege     │                               │
+│  • Jupyter       │    Escalation    │                               │
+│  • UNSW-NB15     │                  │                               │
 │    Validation    │                  │                               │
 └──────────────────┴──────────────────┴───────────────────────────────┘
 ```
@@ -326,8 +336,9 @@ EXFILTRATION        →   ~19.8MB data transferred to attacker IP 40.80.148.42
 | Digital Forensics (Disk/Memory) | | | ✅ | | |
 | Machine Learning & Automation | | ✅ | | | |
 | Real-World Dataset Validation | | ✅ | | | |
+| Evidence-Based Model Selection | | ✅ | | | |
 | False Positive Triage | | | | ✅ | |
-| Detection Engineering | ✅ | | | ✅ | ✅ |
+| Detection Engineering | ✅ | ✅ | | ✅ | ✅ |
 | MITRE ATT&CK Mapping | ✅ | | ✅ | ✅ | ✅ |
 | Python & Security Scripting | | ✅ | | | |
 | Attack Chain Reconstruction | ✅ | | ✅ | | ✅ |
