@@ -171,7 +171,7 @@ An independently built ML pipeline combining three engineering components: SOC a
 | 👨‍💻 Needs Analyst | 575 | **120,498** |
 | ⚡ Workload Reduction | 42.5% | **31.3%** |
 
-> The lower workload reduction on real data (31.3% vs 42.5%) reflects that real-world traffic contains a higher proportion of serious threats requiring human review — the correct and expected behaviour for a production SOC triage system. Special attention was given to minimising false negatives on Critical alerts, as missed high-severity threats represent the highest operational risk in SOC environments. Reducing low-value alert volume while preserving Critical and High detections directly improves Mean Time to Respond (MTTR) — one of the most important KPIs in enterprise SOC operations.
+> The lower workload reduction on real data (31.3% vs 42.5%) reflects that real-world traffic contains a higher proportion of serious threats requiring human review — the correct and expected behaviour for a production SOC triage system. Special attention was given to minimising false negatives on Critical alerts, as missed high-severity threats represent the highest operational risk in SOC environments. In SOC operations literature, reducing low-value alert volume while preserving high-severity detections is widely recognised as a key factor in improving Mean Time to Respond (MTTR) — one of the most critical KPIs in enterprise security operations.
 
 ### 🧪 Model Benchmark Summary
 
